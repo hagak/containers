@@ -5,7 +5,7 @@ ARG TARGETARCH
 ARG VERSION
 
 USER root
-ADD https://github.com/containernetworking/plugins/releases/download/${VERSION}/cni-plugins-linux-${TARGETARCH}-v1.5.0.tgz /
+ADD https://github.com/containernetworking/plugins/releases/download/${VERSION}/cni-plugins-linux-${TARGETARCH}-v${VERSION}.tgz /
 COPY --chmod=755 ./entrypoint.sh /entrypoint.sh
 
 CMD /entrypoint.sh
