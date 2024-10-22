@@ -108,6 +108,7 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image
 --- | --- | ---
 [postgres-init](https://github.com/hagak/pkgs/container/postgres-init) | stable | ghcr.io/hagak/postgres-init
+[speedtest](https://github.com/hagak/pkgs/container/speedtest) | master | ghcr.io/hagak/speedtest
 [tautulli](https://github.com/hagak/pkgs/container/tautulli) | master | ghcr.io/hagak/tautulli
 
 
