@@ -107,7 +107,6 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
-[home-assistant](https://github.com/hagak/pkgs/container/home-assistant) | stable | ghcr.io/hagak/home-assistant
 [postgres-init](https://github.com/hagak/pkgs/container/postgres-init) | stable | ghcr.io/hagak/postgres-init
 [tautulli](https://github.com/hagak/pkgs/container/tautulli) | master | ghcr.io/hagak/tautulli
 
