@@ -6,10 +6,9 @@ ENV SCRIPT_EXPORTER_VERSION=v2.1.2
 RUN apk add tar curl ca-certificates bash
 
 RUN ARCH=$(apk info --print-arch) && \
-    echo ARCH=$ARCH && \
-    case "$ARCH" in \
-      x86) _arch=i386 ;; \
-      armv7) _arch=armhf ;; \
+    case "${TARGETPLATFORM}" in \
+    'linux/amd64') _arch=i386 ;; \
+    'linux/arm64') _arch=armhf ;; \
       *) _arch="$ARCH" ;; \
     esac && \
     echo https://install.speedtest.net/app/cli/ookla-speedtest-${SPEEDTEST_VERSION}-linux-${_arch}.tgz && \
@@ -19,11 +18,11 @@ RUN ARCH=$(apk info --print-arch) && \
     rm -rf /tmp/ookla-speedtest.tgz
 
 RUN ARCH=$(apk info --print-arch) && \
-    case "$ARCH" in \
-      x86_64) _arch=amd64 ;; \
-      armhf) _arch=armv7 ;; \
-      aarch64) _arch=arm64 ;; \
-      *) _arch="$ARCH" ;; \
+    case "$TARGETPLATFORM" in \
+      'linux/amd64') _arch=amd64 ;; \
+      'linux/arm64') _arch=arm64 ;; \
+      'aarch64') _arch=arm64 ;; \
+      *) _arch="$TARGETPLATFORM" ;; \
     esac && \
     echo https://github.com/ricoberger/script_exporter/releases/download/${SCRIPT_EXPORTER_VERSION}/script_exporter-linux-${_arch} && \
     curl -kfsSL -o /usr/local/bin/script_exporter \
@@ -36,3 +35,5 @@ COPY ./apps/speedtest/speedtest-exporter.sh /usr/local/bin/speedtest-exporter.sh
 EXPOSE 9469
 
 ENTRYPOINT  [ "/usr/local/bin/script_exporter" ]
+
+LABEL org.opencontainers.image.source="https://www.speedtest.net/apps/cli"
