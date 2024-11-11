@@ -33,6 +33,7 @@ RUN \
         bluez-deprecated \
         bluez-libs \
         build-base \
+        linux-headers\
         ca-certificates \
         catatonit \
         coreutils \
