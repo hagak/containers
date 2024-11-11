@@ -13,7 +13,7 @@ ENV \
     PIP_BREAK_SYSTEM_PACKAGES=1 \
     UV_SYSTEM_PYTHON=true \
     UV_NO_CACHE=true \
-    CRYPTOGRAPHY_DONT_BUILD_RUST=1 \
+    CRYPTOGRAPHY_DONT_BUILD_RUST=0 \
     HOMEASSISTANT_WHEELS="https://wheels.home-assistant.io/musllinux/" \
     HOME="/config" \
     PYTHONPATH="/config/deps"
@@ -40,6 +40,7 @@ RUN \
         eudev-libs \
         ffmpeg \
         git \
+        gcc \
         iputils \
         jo \
         jq \
