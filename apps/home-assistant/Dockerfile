@@ -32,6 +32,7 @@ RUN \
         bluez \
         bluez-deprecated \
         bluez-libs \
+        build-base \
         ca-certificates \
         catatonit \
         coreutils \
@@ -40,7 +41,6 @@ RUN \
         eudev-libs \
         ffmpeg \
         git \
-        gcc \
         iputils \
         jo \
         jq \
