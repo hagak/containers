@@ -40,7 +40,6 @@ RUN \
         eudev-libs \
         ffmpeg \
         git \
-        gcc \
         iputils \
         jo \
         jq \
