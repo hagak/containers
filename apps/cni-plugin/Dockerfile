@@ -1,4 +1,6 @@
-FROM --platform=$TARGETPLATFORM alpine as base
+ARG VERSION
+FROM docker.io/library/alpine:3.20
+# FROM --platform=$TARGETPLATFORM alpine as base
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
