@@ -1,5 +1,5 @@
 ---
-app: radarr
+app: lidarr
 semver: true
 channels:
   - name: master
