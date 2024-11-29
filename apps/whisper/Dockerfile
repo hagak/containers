@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04
+FROM nvidia/cuda:12.6.2-cudnn-runtime-ubuntu22.04
 
 # Install Whisper
 WORKDIR /usr/src
