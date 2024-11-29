@@ -12,6 +12,9 @@ apt-get update \
     python3-dev \
     python3-pip \
 \
+&& pip uninstall torch \
+&& pip cache purge \
+&& install torch -f https://download.pytorch.org/whl/torch_stable.html \
 && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh \
 && pip3 install --no-cache-dir -U \
     setuptools \
