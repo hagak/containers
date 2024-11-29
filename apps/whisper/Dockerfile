@@ -13,6 +13,7 @@ RUN \
         python3-dev \
         python3-pip \
     \
+    && python3 -m pip install --upgrade pip \
     && pip3 install --no-cache-dir -U \
         setuptools \
         wheel \
