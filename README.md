@@ -120,6 +120,7 @@ Container | Channel | Image
 [sonarr-develop](https://github.com/hagak/pkgs/container/sonarr-develop) | develop | ghcr.io/hagak/sonarr-develop
 [speedtest](https://github.com/hagak/pkgs/container/speedtest) | master | ghcr.io/hagak/speedtest
 [tautulli](https://github.com/hagak/pkgs/container/tautulli) | master | ghcr.io/hagak/tautulli
+[whisper](https://github.com/hagak/pkgs/container/whisper) | main | ghcr.io/hagak/whisper
 
 
 ## Deprecations
