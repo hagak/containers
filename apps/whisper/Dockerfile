@@ -12,16 +12,14 @@ apt-get update \
     python3-dev \
     python3-pip \
 \
-&& pip3 uninstall torch \
-&& pip3 cache purge \
-&& pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 \
-&& curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh \
+# && pip3 uninstall torch \
+# && pip3 cache purge \
+# && pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 \
 && pip3 install --no-cache-dir -U \
     setuptools \
     wheel \
 && pip3 install --no-cache-dir \
-    --extra-index-url https://www.piwheels.org/simple \
-    "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v${VERSION}.tar.gz" \
+    "wyoming-faster-whisper=${VERSION}" \
 \
 && apt-get purge -y --auto-remove \
     build-essential \
