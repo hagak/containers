@@ -25,7 +25,7 @@ RUN \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 EXPOSE 10300
 
 ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
