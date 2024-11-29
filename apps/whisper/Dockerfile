@@ -30,4 +30,4 @@ COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
 ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 EXPOSE 10300
 
-ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
