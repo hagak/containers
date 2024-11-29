@@ -14,7 +14,7 @@ apt-get update \
 \
 && pip3 uninstall torch \
 && pip3 cache purge \
-&& pip3 install -f torch https://download.pytorch.org/whl/torch_stable.html \
+&& pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 \
 && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh \
 && pip3 install --no-cache-dir -U \
     setuptools \
