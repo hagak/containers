@@ -4,7 +4,6 @@ FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu20.04
 # Install Whisper
 WORKDIR /usr/src
 ARG VERSION
-ARG WHISPER_VERSION='1.0.1'
 
 RUN \
     apt-get update \
