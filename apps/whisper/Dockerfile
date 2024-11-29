@@ -25,8 +25,6 @@ RUN \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-COPY run.sh ./
-
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
 EXPOSE 10300
 
