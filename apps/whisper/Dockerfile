@@ -16,7 +16,7 @@ apt-get update \
     setuptools \
     wheel \
 && pip3 install --no-cache-dir \
-    "wyoming-faster-whisper=${VERSION}" \
+    "wyoming-faster-whisper==${VERSION}" \
 \
 && apt-get purge -y --auto-remove \
     build-essential \
