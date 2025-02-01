@@ -9,8 +9,8 @@ USER root
 # hadolint ignore=DL3008,DL3015,SC2086
 RUN \
     apk add --no-cache \
-    nut-server \
-    nut-snmp
+    nut \
+    net-snmp-tools
 
 WORKDIR /config
 
