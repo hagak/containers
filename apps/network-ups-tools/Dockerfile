@@ -8,16 +8,9 @@ USER root
 
 # hadolint ignore=DL3008,DL3015,SC2086
 RUN \
-  apt-get -qq update \
-  && apt-get -qq install -y --no-install-recommends \
-    nut-server\
-  && apt-get -qq install -y --no-install-recommends \
-    nut-snmp\
-  && apt-get clean \
-  && rm -rf \
-    /tmp/* \
-    /var/lib/apt/lists/ \
-    /var/tmp/*
+    apk add --no-cache \
+    nut-server \
+    nut-snmp \
 
 WORKDIR /config
 
