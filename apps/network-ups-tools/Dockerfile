@@ -7,7 +7,7 @@ RUN \
   apt-get -qq update \
   && apt-get -qq install -y --no-install-recommends \
     nut-server \
-    net-snmp
+    net-snmp \
   && apt-get clean \
   && rm -rf \
     /tmp/* \
