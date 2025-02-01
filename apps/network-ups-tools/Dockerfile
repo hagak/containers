@@ -10,7 +10,7 @@ USER root
 RUN \
     apk add --no-cache \
     nut-server \
-    nut-snmp \
+    nut-snmp
 
 WORKDIR /config
 
