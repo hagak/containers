@@ -10,7 +10,9 @@ USER root
 RUN \
   apt-get -qq update \
   && apt-get -qq install -y --no-install-recommends \
-    nut-server nut-snmp\
+    nut-server\
+  && apt-get -qq install -y --no-install-recommends \
+    nut-snmp\
   && apt-get clean \
   && rm -rf \
     /tmp/* \
