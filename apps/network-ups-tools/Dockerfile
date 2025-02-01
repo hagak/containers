@@ -11,6 +11,7 @@ RUN \
     apk add --no-cache \
     bash \
     nut \
+    snmp-ups \
     net-snmp-tools
 
 WORKDIR /config
