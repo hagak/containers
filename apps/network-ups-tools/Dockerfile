@@ -10,8 +10,7 @@ USER root
 RUN \
     apk add --no-cache \
     bash \
-    nut \
-    snmp-ups \
+    nut-snmp\
     net-snmp-tools
 
 WORKDIR /config
