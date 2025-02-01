@@ -110,6 +110,7 @@ Container | Channel | Image
 [cni-plugin](https://github.com/hagak/pkgs/container/cni-plugin) | master | ghcr.io/hagak/cni-plugin
 [home-assistant](https://github.com/hagak/pkgs/container/home-assistant) | stable | ghcr.io/hagak/home-assistant
 [lidarr-develop](https://github.com/hagak/pkgs/container/lidarr-develop) | develop | ghcr.io/hagak/lidarr-develop
+[network-ups-tools](https://github.com/hagak/pkgs/container/network-ups-tools) | stable | ghcr.io/hagak/network-ups-tools
 [postgres-init](https://github.com/hagak/pkgs/container/postgres-init) | stable | ghcr.io/hagak/postgres-init
 [prowlarr](https://github.com/hagak/pkgs/container/prowlarr) | master | ghcr.io/hagak/prowlarr
 [prowlarr-develop](https://github.com/hagak/pkgs/container/prowlarr-develop) | develop | ghcr.io/hagak/prowlarr-develop
