@@ -16,6 +16,7 @@ apt-get update \
     setuptools \
     wheel \
 && pip3 install --no-cache-dir \
+    transformers datasets[audo] accelerate \
     --extra-index-url https://www.piwheels.org/simple \
     "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v${VERSION}.tar.gz" \
 \
