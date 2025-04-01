@@ -107,20 +107,9 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
-[cni-plugin](https://github.com/hagak/pkgs/container/cni-plugin) | master | ghcr.io/hagak/cni-plugin
 [home-assistant](https://github.com/hagak/pkgs/container/home-assistant) | stable | ghcr.io/hagak/home-assistant
-[lidarr-develop](https://github.com/hagak/pkgs/container/lidarr-develop) | develop | ghcr.io/hagak/lidarr-develop
 [network-ups-tools](https://github.com/hagak/pkgs/container/network-ups-tools) | stable | ghcr.io/hagak/network-ups-tools
-[postgres-init](https://github.com/hagak/pkgs/container/postgres-init) | stable | ghcr.io/hagak/postgres-init
-[prowlarr](https://github.com/hagak/pkgs/container/prowlarr) | master | ghcr.io/hagak/prowlarr
-[prowlarr-develop](https://github.com/hagak/pkgs/container/prowlarr-develop) | develop | ghcr.io/hagak/prowlarr-develop
-[radarr](https://github.com/hagak/pkgs/container/radarr) | master | ghcr.io/hagak/radarr
-[radarr-develop](https://github.com/hagak/pkgs/container/radarr-develop) | develop | ghcr.io/hagak/radarr-develop
-[readarr-develop](https://github.com/hagak/pkgs/container/readarr-develop) | develop | ghcr.io/hagak/readarr-develop
-[sonarr](https://github.com/hagak/pkgs/container/sonarr) | main | ghcr.io/hagak/sonarr
-[sonarr-develop](https://github.com/hagak/pkgs/container/sonarr-develop) | develop | ghcr.io/hagak/sonarr-develop
 [speedtest](https://github.com/hagak/pkgs/container/speedtest) | master | ghcr.io/hagak/speedtest
-[tautulli](https://github.com/hagak/pkgs/container/tautulli) | master | ghcr.io/hagak/tautulli
 [whisper](https://github.com/hagak/pkgs/container/whisper) | main | ghcr.io/hagak/whisper
 
 
