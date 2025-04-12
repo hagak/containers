@@ -97,7 +97,7 @@ RUN \
     && apk del --purge .build-deps \
     && rm -rf /root/.cache /root/.cargo /tmp/*
 
-COPY . /
+COPY ./apps/home-assistant/entrypoint.sh /entrypoint.sh
 
 USER nobody:nogroup
 WORKDIR /config
