@@ -1,33 +1,28 @@
-FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
+FROM debian:12
 
-# Install Whisper
-WORKDIR /usr/src
 ARG VERSION
+ARG NVIDIA_DRIVER_VERSION=550.127.05
 
-RUN \
-apt-get update \
-&& apt-get install -y --no-install-recommends \
-    build-essential \
-    python3 \
-    python3-dev \
-    python3-pip \
-\
-&& pip3 install --no-cache-dir -U \
-    setuptools \
-    wheel \
-&& pip3 install --no-cache-dir \
-    transformers datasets[audo] accelerate \
-    --extra-index-url https://www.piwheels.org/simple \
-    "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
-\
-&& apt-get purge -y --auto-remove \
-    build-essential \
-    python3-dev \
-&& rm -rf /var/lib/apt/lists/*
+# install requirements
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends python3-pip wget kmod \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /
-COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
-ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
-EXPOSE 10300
+# install nvidia linux drivers
+RUN cd /tmp \
+    && wget "https://de.download.nvidia.com/XFree86/Linux-x86_64/${NVIDIA_DRIVER_VERSION}/NVIDIA-Linux-x86_64-${NVIDIA_DRIVER_VERSION}.run" \
+    && chmod +x NVIDIA-Linux-x86_64-${NVIDIA_DRIVER_VERSION}.run \
+    && bash -c "./NVIDIA-Linux-x86_64-${NVIDIA_DRIVER_VERSION}.run -s --no-kernel-module" \
+    $$ rm NVIDIA-Linux-x86_64-${NVIDIA_DRIVER_VERSION}.run
 
-ENTRYPOINT ["bash", "/entrypoint.sh"]
+# install wyoming-faster-whisper and nvidia cuda libs
+RUN python3 -m pip install --no-cache-dir --break-system-packages "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v${VERSION}.tar.gz" \
+    && python3 -m pip install --no-cache-dir --break-system-packages nvidia-cublas-cu12 nvidia-cudnn-cu12==9.*
+
+EXPOSE 10300/tcp
+VOLUME [ "/data" ]
+
+COPY run.sh /
+
+ENTRYPOINT [ "/run.sh" ]
