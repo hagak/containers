@@ -24,5 +24,5 @@ EXPOSE 10300/tcp
 VOLUME [ "/data" ]
 
 COPY ./apps/whisper/run.sh /run.sh
-
+RUN chmod +x /run.sh
 ENTRYPOINT [ "/run.sh" ]
