@@ -10,7 +10,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # install wyoming-faster-whisper and nvidia cuda libs
-RUN python3 -m pip install --no-cache-dir --break-system-packages "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz"
+RUN python3 -m pip install --no-cache-dir "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz"
 
 WORKDIR /
 COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
