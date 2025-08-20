@@ -107,7 +107,6 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
-[home-assistant](https://github.com/hagak/pkgs/container/home-assistant) | stable | ghcr.io/hagak/home-assistant
 [network-ups-tools](https://github.com/hagak/pkgs/container/network-ups-tools) | stable | ghcr.io/hagak/network-ups-tools
 [speedtest](https://github.com/hagak/pkgs/container/speedtest) | master | ghcr.io/hagak/speedtest
 [whisper](https://github.com/hagak/pkgs/container/whisper) | main | ghcr.io/hagak/whisper
