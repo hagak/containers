@@ -18,7 +18,7 @@ apt-get update \
 && pip3 install --no-cache-dir \
     transformers datasets[audo] accelerate \
     --extra-index-url https://www.piwheels.org/simple \
-    "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
+    "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v2.4.0.tar.gz" \
 \
 && apt-get purge -y --auto-remove \
     build-essential \
