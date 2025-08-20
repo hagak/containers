@@ -15,7 +15,7 @@ apt-get update \
 && pip3 install --no-cache-dir -U \
     setuptools \
     wheel \
-&& pip3 install --no-cache-dir \
+&& pip3 install --upgrade --no-cache-dir --use-deprecated=legacy-resolver \
     "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
 \
 && apt-get purge -y --auto-remove \
