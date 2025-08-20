@@ -4,13 +4,26 @@ FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
 WORKDIR /usr/src
 ARG VERSION
 
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends python3-pip wget kmod \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
-
-# install wyoming-faster-whisper and nvidia cuda libs
-RUN python3 -m pip install --no-cache-dir "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz"
+RUN \
+apt-get update \
+&& apt-get install -y --no-install-recommends \
+    build-essential \
+    python3 \
+    python3-dev \
+    python3-pip \
+\
+&& pip3 install --no-cache-dir -U \
+    setuptools \
+    wheel \
+&& pip3 install --no-cache-dir \
+    transformers datasets[audo] accelerate \
+    --extra-index-url https://www.piwheels.org/simple \
+    "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
+\
+&& apt-get purge -y --auto-remove \
+    build-essential \
+    python3-dev \
+&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
