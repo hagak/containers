@@ -23,6 +23,6 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages "wyoming-faste
 EXPOSE 10300/tcp
 VOLUME [ "/data" ]
 
-COPY run.sh /
+COPY ./apps/whisper/run.sh /run.sh
 
 ENTRYPOINT [ "/run.sh" ]
