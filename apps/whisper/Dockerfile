@@ -17,7 +17,7 @@ RUN cd /tmp \
     $$ rm NVIDIA-Linux-x86_64-${NVIDIA_DRIVER_VERSION}.run
 
 # install wyoming-faster-whisper and nvidia cuda libs
-RUN python3 -m pip install --no-cache-dir --break-system-packages "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v${VERSION}.tar.gz" \
+RUN python3 -m pip install --no-cache-dir --break-system-packages "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
     && python3 -m pip install --no-cache-dir --break-system-packages nvidia-cublas-cu12 nvidia-cudnn-cu12==9.*
 
 EXPOSE 10300/tcp
