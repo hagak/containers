@@ -27,7 +27,7 @@ apt-get update \
 
 WORKDIR /
 COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
-CHMOD +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
 EXPOSE 10300
 
