@@ -1,5 +1,5 @@
-#FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
-FROM ghcr.io/home-assistant/amd64-base-debian:bookworm
+FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu24.04
+#FROM ghcr.io/home-assistant/amd64-base-debian:bookworm
 
 # Install Whisper
 WORKDIR /usr/src
@@ -19,7 +19,7 @@ RUN \
         setuptools \
         wheel \
     && pip3 install --no-cache-dir \
-        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/v2.4.0.tar.gz" \
+        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/{VERSION}.tar.gz" \
         'transformers==4.52.4' \
     \
     && pip3 install --no-cache-dir \
