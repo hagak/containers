@@ -3,6 +3,7 @@ FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
 # Install Whisper
 WORKDIR /usr/src
 ARG VERSION
+ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 RUN \
     apt-get update \
