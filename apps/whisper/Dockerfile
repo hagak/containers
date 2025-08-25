@@ -1,23 +1,38 @@
 FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
 
-COPY --from=ghcr.io/astral-sh/uv:0.6.16 /uv /uvx /bin/
+# Install Whisper
+WORKDIR /usr/src
+ARG VERSION
 
-WORKDIR /app
+RUN \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        netcat-traditional \
+        python3 \
+        python3-dev \
+        python3-pip \
+    \
+    && pip3 install --no-cache-dir -U \
+        setuptools \
+        wheel \
+    && pip3 install --no-cache-dir \
+        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
+        'transformers==4.52.4' \
+    \
+    && pip3 install --no-cache-dir \
+        --index-url 'https://download.pytorch.org/whl/cpu' \
+        'torch==2.6.0' \
+    \
+    && apt-get purge -y --auto-remove \
+        build-essential \
+        python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=./apps/whisper/uv.lock,target=uv.lock \
-    --mount=type=bind,source=./apps/whisper/pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project
-
-ADD . /app
-
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --compile-bytecode
-
+WORKDIR /
 COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
-
 EXPOSE 10300
 
 ENTRYPOINT ["/entrypoint.sh"]
