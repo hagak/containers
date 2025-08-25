@@ -1,4 +1,5 @@
-FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
+#FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu22.04
+FROM ghcr.io/home-assistant/amd64-base-debian:bookworm
 
 # Install Whisper
 WORKDIR /usr/src
