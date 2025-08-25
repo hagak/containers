@@ -18,7 +18,7 @@ RUN \
     && pip3 install --no-cache-dir -U \
         setuptools \
     && pip3 install --no-cache-dir \
-        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/{VERSION}.tar.gz" \
+        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
         'transformers==4.52.4' \
     \
     && pip3 install --no-cache-dir \
