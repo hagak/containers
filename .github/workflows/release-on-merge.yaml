@@ -17,16 +17,16 @@ on:
 
 jobs:
   simple-checks:
-    uses: hagak/containers/.github/workflows/simple-checks.yaml@243cf0e79ebb6993f87170861bdff0385b426947 # main
+    uses: hagak/containers/.github/workflows/simple-checks.yaml@b09044bd781d5d51ec9267ea2e978e36b3b7a78d # main
 
   get-changed-images:
     needs: ["simple-checks"]
-    uses: hagak/containers/.github/workflows/get-changed-images.yaml@243cf0e79ebb6993f87170861bdff0385b426947 # main
+    uses: hagak/containers/.github/workflows/get-changed-images.yaml@b09044bd781d5d51ec9267ea2e978e36b3b7a78d # main
 
   build-images:
     needs: ["simple-checks", "get-changed-images"]
     if: ${{ needs.get-changed-images.outputs.addedOrModified == 'true' }}
-    uses: hagak/containers/.github/workflows/build-images.yaml@243cf0e79ebb6993f87170861bdff0385b426947 # main
+    uses: hagak/containers/.github/workflows/build-images.yaml@b09044bd781d5d51ec9267ea2e978e36b3b7a78d # main
     secrets: inherit
     permissions:
       contents: read
