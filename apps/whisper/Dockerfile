@@ -13,6 +13,7 @@ RUN \
     build-essential \
     git \
     python3-dev \
+    python3-pip \
     python3-venv && \
   if [ -z ${VERSION+x} ]; then \
     VERSION=$(curl -sX GET "https://api.github.com/repos/rhasspy/wyoming-faster-whisper/releases/latest" \
