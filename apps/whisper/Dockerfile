@@ -19,10 +19,10 @@ RUN \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   python3 -m venv /lsiopy && \
-  pip install -U --no-cache-dir \
-    pip \
+  pip3 install -U --no-cache-dir \
+    pip3 \
     wheel && \
-  pip install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/ubuntu/ \
+  pip3 install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/ubuntu/ \
     git+https://github.com/rhasspy/wyoming-faster-whisper@${VERSION} && \
   echo "**** cleanup ****" && \
   apt-get purge -y --auto-remove \
