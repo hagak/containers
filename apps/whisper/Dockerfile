@@ -1,4 +1,4 @@
-FROM nvidia/cuda:13.1.1-cudnn-runtime-ubuntu24.04
+FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
 #FROM ghcr.io/home-assistant/amd64-base-debian:bookworm
 
 # Install Whisper
@@ -7,32 +7,28 @@ ARG VERSION
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
 RUN \
-  echo "**** install packages ****" && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends \
-    build-essential \
-    git \
-    python3-dev \
-    python3-pip \
-    python3-venv && \
-  if [ -z ${VERSION+x} ]; then \
-    VERSION=$(curl -sX GET "https://api.github.com/repos/rhasspy/wyoming-faster-whisper/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-  fi && \
-  python3 -m venv /lsiopy && \
-  pip3 install -U --no-cache-dir \
-    pip3 \
-    wheel && \
-  pip3 install -U --no-cache-dir --find-links https://wheel-index.linuxserver.io/ubuntu/ \
-    git+https://github.com/rhasspy/wyoming-faster-whisper@${VERSION} && \
-  echo "**** cleanup ****" && \
-  apt-get purge -y --auto-remove \
-    build-essential \
-    git \
-    python3-dev && \
-  rm -rf \
-    /var/lib/apt/lists/* \
-    /tmp/*
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        netcat-traditional \
+        python3 \
+        python3-dev \
+        python3-pip \
+    \
+    && pip3 install --no-cache-dir -U \
+        setuptools \
+    && pip3 install --no-cache-dir \
+        "wyoming-faster-whisper @ https://github.com/rhasspy/wyoming-faster-whisper/archive/refs/tags/${VERSION}.tar.gz" \
+        'transformers==4.52.4' \
+    \
+    && pip3 install --no-cache-dir \
+        --index-url 'https://download.pytorch.org/whl/cpu' \
+        'torch==2.6.0' \
+    \
+    && apt-get purge -y --auto-remove \
+        build-essential \
+        python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY ./apps/whisper/entrypoint.sh /entrypoint.sh
