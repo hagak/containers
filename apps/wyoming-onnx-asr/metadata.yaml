@@ -1,0 +1,9 @@
+---
+app: wyoming-onnx-asr
+semver: true
+channels:
+  - name: main
+    platforms: ["linux/amd64"]
+    stable: true
+    tests:
+      enabled: false
