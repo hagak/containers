@@ -109,7 +109,6 @@ Container | Channel | Image
 --- | --- | ---
 [network-ups-tools](https://github.com/hagak/pkgs/container/network-ups-tools) | stable | ghcr.io/hagak/network-ups-tools
 [speedtest](https://github.com/hagak/pkgs/container/speedtest) | master | ghcr.io/hagak/speedtest
-[whisper](https://github.com/hagak/pkgs/container/whisper) | main | ghcr.io/hagak/whisper
 
 
 ## Deprecations
