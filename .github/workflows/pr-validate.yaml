@@ -13,15 +13,15 @@ concurrency:
 
 jobs:
   simple-checks:
-    uses: hagak/containers/.github/workflows/simple-checks.yaml@ac428001a287d7c35b5c721aa5cf98be7ca2bc3f # main
+    uses: hagak/containers/.github/workflows/simple-checks.yaml@4b07dea563c2fb90dacd2a02577b0e0f6969dc6d # main
 
   get-changed-images:
-    uses: hagak/containers/.github/workflows/get-changed-images.yaml@ac428001a287d7c35b5c721aa5cf98be7ca2bc3f # main
+    uses: hagak/containers/.github/workflows/get-changed-images.yaml@4b07dea563c2fb90dacd2a02577b0e0f6969dc6d # main
 
   build-images:
     needs: ["simple-checks", "get-changed-images"]
     if: ${{ needs.get-changed-images.outputs.addedOrModified == 'true' }}
-    uses: hagak/containers/.github/workflows/build-images.yaml@ac428001a287d7c35b5c721aa5cf98be7ca2bc3f # main
+    uses: hagak/containers/.github/workflows/build-images.yaml@4b07dea563c2fb90dacd2a02577b0e0f6969dc6d # main
     secrets: inherit
     permissions:
       contents: read
