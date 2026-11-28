@@ -25,12 +25,12 @@ on:
 jobs:
   simple-checks:
     name: Simple Checks
-    uses: hagak/containers/.github/workflows/simple-checks.yaml@4dfa05edd318cdf29ad4c875c578d0d7f7af5d07 # main
+    uses: hagak/containers/.github/workflows/simple-checks.yaml@8ab21cea4eebcf2d7e329451cf0100123cf8db7b # main
 
   build-images:
     name: Build Images
     needs: simple-checks
-    uses: hagak/containers/.github/workflows/build-images.yaml@4dfa05edd318cdf29ad4c875c578d0d7f7af5d07 # main
+    uses: hagak/containers/.github/workflows/build-images.yaml@8ab21cea4eebcf2d7e329451cf0100123cf8db7b # main
     secrets: inherit
     permissions:
       contents: read
